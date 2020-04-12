@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{5CB6CBB8-9789-46E4-8D23-C42F870802C0}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>Networking</RootNamespace>
+        <AssemblyName>Networking</AssemblyName>
+        <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Class1.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Protocols\ClientWorker.cs" />
+        <Compile Include="Protocols\ServerProxy.cs" />
+        <Compile Include="Requests\AddDonationRequest.cs" />
+        <Compile Include="Requests\AddDonorRequest.cs" />
+        <Compile Include="Requests\AddingNewDonation.cs" />
+        <Compile Include="Requests\GetAllCasesRequest.cs" />
+        <Compile Include="Requests\GetAllDonorsBySubstringRequest.cs" />
+        <Compile Include="Requests\GetAllDonorsRequest.cs" />
+        <Compile Include="Requests\IRequest.cs" />
+        <Compile Include="Requests\LoginRequest.cs" />
+        <Compile Include="Requests\LogoutRequest.cs" />
+        <Compile Include="Responses\AddDonationResponse.cs" />
+        <Compile Include="Responses\AddDonorResponse.cs" />
+        <Compile Include="Responses\ErrorResponse.cs" />
+        <Compile Include="Responses\GetAllCasesResponse.cs" />
+        <Compile Include="Responses\GetAllDonorsBySubstringResponse.cs" />
+        <Compile Include="Responses\GetAllDonorsResponse.cs" />
+        <Compile Include="Responses\IResponse.cs" />
+        <Compile Include="Responses\OkResponse.cs" />
+        <Compile Include="Responses\UpdateResponses\IUpdateResponse.cs" />
+        <Compile Include="Responses\UpdateResponses\NewDonationAddedUpdate.cs" />
+        <Compile Include="Utils\AbstractConcurrentServer.cs" />
+        <Compile Include="Utils\AbstractServer.cs" />
+        <Compile Include="Utils\SerialConcurrentServer.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Model\Model.csproj">
+        <Project>{37605711-ef53-4256-9385-6527954f79a6}</Project>
+        <Name>Model</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\Services\Services.csproj">
+        <Project>{7466d9bf-881f-4a87-8c68-16182383ecf3}</Project>
+        <Name>Services</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
